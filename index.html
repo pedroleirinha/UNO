@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="mainMenu">
+        <h1 id="gameTitle">UNO</h1>
+        <div id="singlePlayer" class="choice">Single Player</div>
+        <div id="singlePlayer" class="choice">Multi Player</div>
+        <div id="singlePlayer" class="choice">LeaderScores</div>
+        <div id="singlePlayer" class="choice">Settings</div>
+    </div>
+
+    <script>
+        const singlePlayerButton = document.getElementById("singlePlayer");
+        singlePlayerButton.addEventListener("click", _ => window.location = "gamePage.html");
+    </script>
+</body>
+
+</html>

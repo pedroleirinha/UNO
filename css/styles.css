@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css?family=Butcherman|Fascinate&display=swap');
+body {
+    background-color: #292929;
+    /* display: none; */
+}
+
+/* MAIN PAGE STYLES */
+
+#mainMenu {
+    width: 50%;
+    margin: auto;
+}
+
+#gameTitle {
+    font-family: "Fascinate", cursive;
+    color: white;
+    margin-top: 1px;
+    font-size: 8em;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 10%;
+}
+
+#gameTitle:hover {
+    animation: shadowAnim 0.6s both;
+}
+
+.choice{
+    font-size: 3em;
+    text-align: center;
+    font-family: "Butcherman", cursive;
+    color: #ff2f2f;
+    cursor: pointer;
+}
+
+
+.choice:hover {
+    animation: vibrate 0.3s linear infinite both;
+}
+
+@keyframes shadowAnim {
+    0% {
+        text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        text-shadow: 1px -1px #555555, 2px -2px #555555, 3px -3px #555555, 4px -4px #555555, 5px -5px #555555, 6px -6px #555555, 7px -7px #555555, 8px -8px #555555;
+        transform: translateX(-8px) translateY(8px);
+    }
+}
+
+@keyframes vibrate {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* GAME STYLES */
+
+.card {
+    width: 65px;
+    min-width: 65px;
+    max-width: 65px;
+    height: 100px;
+    background-color: white;
+    box-shadow: 1px 1px 2px 0px white;
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    /* transition: all 500ms linear */
+}
+
+.card:hover {
+    transform: scale(1.2);
+}
+
+.greenBack {
+    background-color: #3fad32;
+    color: white;
+}
+
+.redBack {
+    background-color: #ff2f2f;
+    color: white;
+}
+
+.yellowBack {
+    background-color: #dcd72b;
+    color: white;
+}
+
+.blueBack {
+    background-color: #2e65b7;
+    color: white;
+}
+
+.neutralBack {
+    background-color: #1d1c1c;
+    color: white;
+}
+
+#gameBoard {
+    display: flex;
+    width: 99%;
+    margin: auto;
+}
+
+.Number {
+    line-height: 100px;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.Stop {
+    background-image: url("img/stop.png");
+}
+
+.ChangeDirection {
+    background-image: url("img/change.png");
+}
+
+.ChangeColor {
+    background-image: url("img/color.png");
+}
+
+.GoGet {
+    line-height: 100px;
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.img {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: center;
+}
+
+.playerZone {
+    margin: 1% 1% 0 0;
+    border-radius: 15px;
+    width: 40%;
+    min-width: 40%;
+    max-width: 40%;
+}
+
+.playerZone h1 {
+    font-family: cursive;
+    font-size: 2.5em;
+    text-align: center;
+    text-shadow: 1px 1px 3px white;
+}
+
+.activeTurn {
+    text-shadow: 1px 1px 3px rgb(56, 145, 15) !important;
+}
+
+#colorPallet {
+    display: flex;
+}
+
+.deckZone {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+}
+
+#neutralZone {
+    display: block;
+    height: 500px;
+    width: 34%;
+}
+
+#topCard {
+    margin: auto;
+}
+
+#remainingDeck {
+    margin: auto;
+    margin-top: 95%;
+    margin-bottom: 10%;
+    min-width: 150px;
+    width: 150px;
+    height: 100px;
+    max-height: 100px;
+    height: 100px;
+    background-position-x: center;
+    cursor: pointer;
+}
+
+.playerZone button {
+    width: 25%;
+    color: white;
+    background-color: rgb(27, 30, 84);
+    border: none;
+    padding: 3%;
+    margin: 5% auto;
+    font-size: 1.5em;
+    font-family: monospace;
+    border-radius: 10px;
+    text-shadow: 3px 2px 5px black;
+    cursor: pointer;
+}
+
+.playerZone button:hover {
+    box-shadow: 3px 3px 5px -3px white;
+}
+
+.fullStackDeck {
+    background-image: url("img/full_stack.png");
+}
+
+.mediumStackDeck {
+    background-image: url("img/medium_stack.png");
+}
+
+.smallStackDeck {
+    background-image: url("img/small_stack.png");
+}
+
+#unoIMG {
+    margin: auto;
+    display: none;
+    height: 150px;
+    background-position-x: center;
+    cursor: pointer;
+    background-image: url("img/uno.png");
+}
+
+#gameButtons {
+    display: flex;
+}
+
+#remainingDeck:active {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+.victory {
+    animation: victoryBlinker 1s linear infinite;
+}
+
+.loser {
+    animation: loserBlinker 1s linear infinite;
+}
+
+@keyframes victoryBlinker {
+    50% {
+        box-shadow: -2px 0px 40px 1px #15771a;
+    }
+}
+
+@keyframes loserBlinker {
+    50% {
+        box-shadow: -2px 0px 40px 1px #771515;
+    }
+}
