@@ -27,7 +27,7 @@ class Player {
         return this.unoState === true;
     }
     playCard(clickedCard) {
-        let index = this.hand.findIndex(card => card.id = clickedCard.id);
+        let index = this.hand.findIndex(card => card.id === clickedCard.id);
         this.hand.splice(index, 1);
         this.turnPlayedCards.push(clickedCard);
     }
@@ -224,7 +224,7 @@ class Model {
     }
 
     removePlayedCardDeck(playedCard) {
-        let indexOfPlayedCard = this.deck.indexOf((card) => card.id = playedCard.id);
+        let indexOfPlayedCard = this.deck.indexOf((card) => card.id === playedCard.id);
         this.deck.splice(indexOfPlayedCard, 1);
     }
 

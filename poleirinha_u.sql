@@ -3,11 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 15-Jul-2019 às 17:02
+-- Generation Time: 08-Nov-2019 às 20:59
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
-
-CREATE DATABASE IF NOT EXISTS `poleirinha_u`;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,16 +28,14 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `cards`
 --
 
-CREATE TABLE IF NOT EXISTS `cards` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `cards`;
+CREATE TABLE `cards` (
+  `id` int(11) NOT NULL,
   `id_categoria` int(11) NOT NULL,
   `id_cor` int(11) NOT NULL,
   `quantidade` int(2) NOT NULL,
-  `numero` int(2) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_categoria` (`id_categoria`) USING BTREE,
-  KEY `fk_cor` (`id_cor`)
-) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=latin1;
+  `numero` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `cards`
@@ -54,7 +50,6 @@ INSERT INTO `cards` (`id`, `id_categoria`, `id_cor`, `quantidade`, `numero`) VAL
 (6, 4, 1, 2, 10),
 (7, 2, 1, 0, 10),
 (8, 5, 1, 0, 10),
-(9, 1, 1, 0, 10),
 (10, 1, 1, 0, 2),
 (11, 1, 1, 0, 2),
 (12, 1, 1, 0, 3),
@@ -153,7 +148,8 @@ INSERT INTO `cards` (`id`, `id_categoria`, `id_cor`, `quantidade`, `numero`) VAL
 (105, 1, 4, 0, 8),
 (106, 1, 4, 0, 8),
 (107, 1, 4, 0, 9),
-(108, 1, 4, 0, 9);
+(108, 1, 4, 0, 9),
+(110, 5, 1, 0, 10);
 
 -- --------------------------------------------------------
 
@@ -161,21 +157,21 @@ INSERT INTO `cards` (`id`, `id_categoria`, `id_cor`, `quantidade`, `numero`) VAL
 -- Estrutura da tabela `categorias`
 --
 
-CREATE TABLE IF NOT EXISTS `categorias` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `decricao_categoria` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `categorias`;
+CREATE TABLE `categorias` (
+  `id` int(11) NOT NULL,
+  `descricao_categoria` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `categorias`
 --
 
-INSERT INTO `categorias` (`id`, `decricao_categoria`) VALUES
-(1, 'Numero'),
-(2, 'Muda Sentido'),
-(3, 'Muda Cor'),
-(4, 'Buscar'),
+INSERT INTO `categorias` (`id`, `descricao_categoria`) VALUES
+(1, 'Number'),
+(2, 'ChangeDirection'),
+(3, 'ChangeColor'),
+(4, 'GoGet'),
 (5, 'Stop');
 
 -- --------------------------------------------------------
@@ -184,22 +180,68 @@ INSERT INTO `categorias` (`id`, `decricao_categoria`) VALUES
 -- Estrutura da tabela `cores`
 --
 
-CREATE TABLE IF NOT EXISTS `cores` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `decricao_cor` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `cores`;
+CREATE TABLE `cores` (
+  `id` int(11) NOT NULL,
+  `descricao_cor` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `cores`
 --
 
-INSERT INTO `cores` (`id`, `decricao_cor`) VALUES
-(1, 'Amarelo'),
-(2, 'Azul'),
-(3, 'Verde'),
-(4, 'Vermelho'),
-(5, 'Neutro');
+INSERT INTO `cores` (`id`, `descricao_cor`) VALUES
+(1, 'yellow'),
+(2, 'blue'),
+(3, 'green'),
+(4, 'red'),
+(5, 'neutral');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cards`
+--
+ALTER TABLE `cards`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_categoria` (`id_categoria`) USING BTREE,
+  ADD KEY `fk_cor` (`id_cor`);
+
+--
+-- Indexes for table `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cores`
+--
+ALTER TABLE `cores`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cards`
+--
+ALTER TABLE `cards`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+
+--
+-- AUTO_INCREMENT for table `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `cores`
+--
+ALTER TABLE `cores`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
